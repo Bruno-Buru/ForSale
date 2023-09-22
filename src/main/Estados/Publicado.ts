@@ -8,10 +8,10 @@ import { Reservada } from "./Reservada";
 
 export class Publicado extends EstadoOperacion{
     public reservar(cliente: Cliente, empleado: Empleado, operacion: Operacion): void {
-       operacion.setEstado(new Reservada(cliente,empleado))
+       operacion.setEstado(new Reservada(cliente,empleado,operacion))
     }
     public concretar(cliente: Cliente, empleado: Empleado, operacion: Operacion): void {
-        operacion.setEstado(new Concretado)
+        operacion.setEstado(new Concretado(empleado,operacion))
     }
 
     

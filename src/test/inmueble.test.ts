@@ -1,8 +1,8 @@
 import { PH } from "../main/PH"
-import { Casa } from "../main/casa"
-import { Departamento } from "../main/departamento";
+import { Casa } from "../main/Casa"
+import { Departamento } from "../main/Departamento";
 
-import { Inmueble } from "../main/inmueble"
+import { Inmueble } from "../main/Inmueble"
 
 test("probando inmuebles",()=>{
     //const unInmueble=new Inmueble();    no se puede intanciar porque es una clase abtracta

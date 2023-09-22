@@ -5,6 +5,14 @@ import { Operacion } from "../Operacion";
 
 
 export class Concretado extends EstadoOperacion{
+
+    constructor(empleado:Empleado,operacion:Operacion){
+        super();
+        empleado.agregarOperacionConcretada(operacion)
+    }
+
+
+
     public reservar(cliente: Cliente, empleado: Empleado, operacion: Operacion): void {
         throw new Error("no se puede reservar porque ya fue concretado");
     }

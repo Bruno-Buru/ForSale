@@ -1,7 +1,7 @@
 import { Cliente } from "../Cliente";
 import { Empleado } from '../Empleado';
 import { EstadoOperacion } from "../EstadoOperacion";
-import { Operacion } from "../Operacion";
+import { Operacion } from '../Operacion';
 import { Concretado } from './Concretado';
 
 export class Reservada extends EstadoOperacion{
@@ -10,7 +10,7 @@ export class Reservada extends EstadoOperacion{
     }
     public concretar(cliente: Cliente, empleado: Empleado, operacion: Operacion): void {
        if(this.clienteQueReservo===cliente){
-        operacion.setEstado(new Concretado());
+        operacion.setEstado(new Concretado(empleado,operacion));
 
        }
        else {
@@ -21,10 +21,11 @@ export class Reservada extends EstadoOperacion{
     private clienteQueReservo:Cliente;
     private EmpleadoQueReservo:Empleado;
 
-    constructor(cliente:Cliente,empleado:Empleado){
+    constructor(cliente:Cliente,empleado:Empleado,operacion:Operacion){
     super();
     this.clienteQueReservo=cliente
     this.EmpleadoQueReservo=empleado
+    empleado.agregarOperacionReservada(operacion)
     }
 
     

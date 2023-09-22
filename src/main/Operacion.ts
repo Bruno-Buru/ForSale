@@ -3,14 +3,20 @@ import { Empleado } from "./Empleado";
 import { EstadoOperacion } from "./EstadoOperacion";
 import { Publicado } from "./Estados/Publicado";
 import { Inmueble } from "./Inmueble";
+import { Zona } from "./Zona";
 
 export abstract class Operacion{
 
 protected inmueble:Inmueble;
 private estado:EstadoOperacion;
 
+
 constructor(){
     this.estado=new Publicado()
+}
+
+public getZona():Zona{
+    return this.inmueble.getZona()
 }
 
 public setEstado(unEstado:EstadoOperacion){
